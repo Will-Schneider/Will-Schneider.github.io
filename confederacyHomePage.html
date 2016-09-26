@@ -1,8 +1,30 @@
 <!--Website for assignment Will Schneider-->
 <!--Home Page-->
-<HTML>
-   <HEAD>
-      <TITLE>The Confederate Navy Home Page</TITLE>
+<html>
+      <script>
+		function getCookie() 
+		{
+			var cname = username;
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0; i<ca.length; i++) 
+			{
+				var c = ca[i];
+				while (c.charAt(0)==' ') 
+				{
+					c = c.substring(1);
+				}
+			
+				if (c.indexOf(name) == 0) 
+				{
+				return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+   </script>
+   <head>
+      <title>The Confederate Navy Home Page</title>
 		<style type="text/css">
 			title
 				{
@@ -82,8 +104,8 @@
 				}
 	
 		</style>
-   </HEAD>
-   <BODY background="images/ocean.jpeg">
+   </title>
+   <body background="images/ocean.jpeg">
 		<span class="banner">
             <img src="images/banner.jpeg" alt="Banner" height="150" width ="1240" />
 		</span>
@@ -112,5 +134,5 @@
 
 		
 	  
-   </BODY>
-</HTML>
+   </body>
+</html>

@@ -1,4 +1,56 @@
 <HTML>
+		<script>
+
+			function Login(form) { 
+				username = new Array("William"); 
+				password = new Array("1"); 
+				page = "confederacyHomePage.html"; 
+
+			if (
+				form.username.value == username[0] && form.password.value == password[0] ||
+				form.username.value == username[1] && form.password.value == password[1] ||
+				form.username.value == username[2] && form.password.value == password[2] ||
+				form.username.value == username[3] && form.password.value == password[3] ||
+				form.username.value == username[4] && form.password.value == password[4] ||
+				form.username.value == username[5] && form.password.value == password[5] ||
+				form.username.value == username[6] && form.password.value == password[6] ||
+				form.username.value == username[7] && form.password.value == password[7] ||
+				form.username.value == username[8] && form.password.value == password[8] ||
+				form.username.value == username[9] && form.password.value == password[9]
+				) 
+				{
+				setCookie("Username", form.username.value, 30);
+				self.location.href = page; 
+			 } 
+			else { alert("Either the username or password you entered is incorrect.\nPlease try again."); form.username.focus(); } 
+			
+			
+			return true; }
+			
+			function setCookie(username,cvalue,exdays) 
+			{
+				var d = new Date();
+								var d = new Date();
+				d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				var expires = "expires=" + d.toGMTString();
+				
+				document.cookie = username+"="+cvalue+"; "+expires;
+
+			return true;
+			}
+			
+
+			function guestLogin()
+			{
+				
+				setCookie("Username", "Guest", 30);
+				page = "confederacyHomePage.html";
+				self.location.href = page; 
+			
+			}
+			
+
+		</script>
    <HEAD>
       <TITLE>Welcome to the Confederate Navy</TITLE>
 		<style type="text/css">
@@ -18,6 +70,18 @@
 					padding: 24px;
 					text-align: center;
 				}
+			form
+				{
+					background-image: ocean.jpeg;
+					background-repeat: no-repeat;
+					background-attachment: fixed;
+					background-position: center;
+					background-size: cover;
+					font-family: Times;
+					color: #000000;
+					padding: 24px;
+					text-align: center;
+				}
 			h1	{
 					padding: 0;
 					color: white;
@@ -26,6 +90,17 @@
 					margin-left: 300;
 					margin-top: 100;
 					margin-bottom: 100;
+					overflow: hidden;
+					text-align: center;
+				
+				}
+			h5	{
+
+					padding: 0;
+					color: white;
+					background-color: #333333;
+					margin-right: 300;
+					margin-left: 300;
 					overflow: hidden;
 					text-align: center;
 				
@@ -64,15 +139,38 @@
 					width: 100%;
 				}
 		</style>
+		
+
    </HEAD>
 	<BODY background="images/ocean.jpeg">
 		<span class="banner">
             <img src="images/banner.jpeg" alt="Banner" height="150" width ="1240" />
 		</span>
 		<h1>Would you like to procede to the home page?</h1>
-		<ul>
-			<li><a href="confederacyHomePage.html">Yes</a></li>
-			<li><a href="https://www.google.com/">No</a></li>
-		</ul>
+		<form> <br> 
+			<center> 
+				<h5>
+					Username: 
+					<input type="text" name="username" style="background:#bfbfbf; color:black; border-color:black;" 
+					onFocus="this.style.background = '#ffffff';" onBlur="this.style.background = '#bfbfbf';"> <br> 
+		
+					Password: 
+					<input type="password" name="password" style="background:#bfbfbf;color:#212121;border-color:#212121;" 
+					onFocus="this.style.background = '#ffffff';" onBlur="this.style.background = '#bfbfbf';"> <br> 
+			
+					<input type="button" value="Login" onClick="Login(this.form);" style="background:#bfbfbf;color:#000000;border-color:#212121;" 
+					onMouseOver="this.style.color ='#404040';" onMouseOut="this.style.color = '#000000';" onFocusr="this.style.color = '#404040';"
+					onBlur="this.style.color = '#000000';">
+					<br>
+					Guest: 
+					
+					<input type="button" value="Guest" onClick="guestLogin();" style="background:#bfbfbf;color:#000000;border-color:#212121;" 
+					onMouseOver="this.style.color ='#404040';" onMouseOut="this.style.color = '#000000';" onFocusr="this.style.color = '#404040';"
+					onBlur="this.style.color = '#000000';">
+
+				
+				</h5> 
+			</center> 
+		</form>
 	</BODY>
 </HTML>
