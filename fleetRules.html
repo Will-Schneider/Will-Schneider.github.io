@@ -1,6 +1,47 @@
 <!--Website for assignment Will Schneider-->
 <!--Rules and Regulations-->
 <HTML>
+         <script>
+		function getCookie() 
+		{
+			var username = "Username";
+			var name = username + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0; i<ca.length; i++) 
+			{
+				var c = ca[i];
+				while (c.charAt(0)==' ') 
+				{
+					c = c.substring(1);
+				}
+			
+				if (c.indexOf(name) == 0) 
+				{
+				return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+		
+		function checkCookie() 
+		{
+			var user=getCookie("Username");
+			if (user != "") 
+			{
+				
+			} 
+			else 
+			{
+				alert("Please login or enter as guest.");
+				if (user != "" && user != null) 
+				{
+					alert("Please Login.");
+					
+				}
+				window.location.href="index.html";
+			}
+		}
+   </script>
    <HEAD>
       <TITLE>Fleet Rules</TITLE>
 		<style type="text/css">
@@ -96,7 +137,7 @@
 				}
 		</style>
    </HEAD>
-   <BODY background="images/ocean.jpeg">
+   <BODY onload="checkCookie()" background="images/ocean.jpeg">
 		<span class="banner">
             <img src="images/banner.jpeg" alt="Banner" height="150" width ="1240" />
 		</span>
